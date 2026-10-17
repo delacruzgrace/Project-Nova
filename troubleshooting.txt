@@ -1,0 +1,44 @@
+1. Accidentally staged .env
+Command: git restore --staged .env
+Explanation: This removes .env from staging but keeps the file and its contents on my computer.
+
+2. Correct the latest commit message that has not been pushed
+Command:git commit --amend -m "Fixed authentication typo"
+Explanation: This changes the message of the latest commit. It is intended for a commit that has not yet been pushed.
+
+3. Add a forgotten CSS file to the previous commit
+Commands:git add styles.css
+git commit --amend --no-edit
+Explanation: This stages styles.css and adds it to the previous commit without changing the commit message.
+
+4. Discard uncommitted changes in index.html
+Command:
+git restore index.html
+Explanation: This discards unstaged changes in index.html and restores the file to its last committed version. Be careful because those changes cannot easily be recovered.
+
+5. Move three unpushed commits from main to a new branch
+Commands:git branch new-feature
+git reset HEAD~3 --hard
+git checkout new-feature
+Explanation: This creates a branch pointing to the current commit, moves main back three commits, and switches to new-feature.
+
+6. Save commits made in detached HEAD state
+Command:
+git switch -c recovery-branch
+Explanation: This creates a new branch at the current commit so the commits can be preserved.
+
+7. Undo a bad commit that has already been pushed
+Command:git revert <buggy-commit-hash>
+Explanation: This creates a new commit that reverses the changes from the specified commit without rewriting shared history. Replace <buggy-commit-hash> with the actual commit hash.
+
+8. Recover a deleted branch using a commit hash from git reflog
+Command:git branch <deleted-branch-name> <commit-hash>
+Explanation: This recreates the deleted branch at the commit where its work was last recorded. Replace the placeholders with the branch name and correct commit hash.
+
+9. Stage file deletions made directly in the file system
+Command:git add -u
+Explanation: This stages tracked file modifications and deletions, but does not stage new untracked files.
+
+10. Delete a remote branch named testing-junk
+Command:git push origin --delete testing-junk
+Explanation: This deletes the testing-junk branch from the remote repository named origin. It does not automatically delete your local branch with the same name.
