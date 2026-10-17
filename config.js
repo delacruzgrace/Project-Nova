@@ -1,4 +1,4 @@
 const config = {
-    apiUrl: "http://localhost:3000",
-    environment: "development"
+    apiUrl: "https://api.projectnova.com",
+    environment: "production"
 };
